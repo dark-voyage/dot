@@ -1,0 +1,10 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\JavaSoft]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\JavaSoft\Java Runtime Environment]
+"CurrentVersion"="14.0"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\JavaSoft\Java Runtime Environment\14.0]
+"JavaHome"="D:\\Scoop\\apps\\openjdk\\current"
+"MicroVersion"="0"
