@@ -69,7 +69,10 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
 plugins=(git)
+
+source $ZSH/oh-my-zsh.sh 
 
 # User configuration
 
