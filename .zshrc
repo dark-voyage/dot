@@ -1,247 +1,187 @@
-# --------------------------------- ALIASES -----------------------------------
-# color
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias diff='diff --color=auto'
-alias pacman='pacman --color=auto'
-alias kawaii='figlet -f slant "Nya, nya, nya !" | lolcat -a && echo "" &&  sudo pacman -Syyu | lolcat -a && yay -Sua | lolcat -a && sudo pacman -Scc | lolcat -a'
-alias omaewa='yay -Ss'
-alias fresh='source ~/.zshrc'
-alias neofetch='neofetch | lolcat'
-# other
-#alias ..='cd ..'
-alias glog='setterm -linewrap off && git glog && setterm -linewrap on'
-alias scss='scss --no-cache --quiet --sourcemap=none'
-alias xclip='xclip -selection c'
-# replace commands
-command -v vim &> /dev/null && alias vi='vim'
-command -v lsd &> /dev/null && alias ls='lsd --group-dirs first'
-command -v colorls &> /dev/null && alias ls='colorls --sd --gs'
-command -v htop &> /dev/null && alias top='htop'
-command -v gotop &> /dev/null && alias top='gotop -p'
-command -v ytop &> /dev/null && alias top='ytop -p'
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/mumtoza/.oh-my-zsh"
+PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
-# ----------------------------------- MISC -----------------------------------
-export VISUAL=vim
-export EDITOR=$VISUAL
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_MODE='nerdfont-complete'
 
-# enable terminal linewrap
-setterm -linewrap on
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# colorize man pages
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
-export LESSHISTFILE=-
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# ------------------------------- ZSH SETTINGS --------------------------------
-# ----- options -----
-unsetopt NO_BEEP
-unsetopt NO_MATCH
-setopt AUTO_CD
-setopt BEEP
-setopt NOMATCH
-setopt NOTIFY
-setopt INC_APPEND_HISTORY
-setopt SHARE_HISTORY
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_FIND_NO_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_REDUCE_BLANKS
-setopt HIST_VERIFY
-setopt HIST_BEEP
-setopt INTERACTIVE_COMMENTS
-setopt MAGIC_EQUAL_SUBST
-setopt NULL_GLOB
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-HISTFILE="$HOME/.cache/zsh_history"
-HIST_STAMPS=mm/dd/yyyy
-DISABLE_UPDATE_PROMPT=true
-HISTSIZE=5000
-SAVEHIST=5000
-ZLE_RPROMPT_INDENT=0
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
 
-# ----- keys -----
-bindkey '^[[2~' overwrite-mode
-bindkey '^[[3~' delete-char
-bindkey '^[[H' beginning-of-line
-bindkey '^[[1~' beginning-of-line
-bindkey '^[[F' end-of-line
-bindkey '^[[4~' end-of-line
-bindkey '^[[1;5C' forward-word
-bindkey '^[[1;5D' backward-word
-bindkey '^[[3;5~' kill-word
-bindkey '^[[5~' beginning-of-buffer-or-history
-bindkey '^[[6~' end-of-buffer-or-history
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
-# ----- promt -----
-PS1="%F{cyan} %~ >%F{blue}> %F{reset}"
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-# ----- plugins -----
-# plugin source helper
-_source_plugin() {
-	plugin_installed=false
-	plugin_name="$1"
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-	for basedir in /usr/share/zsh/plugins /usr/share
-	do
-		plugin="$basedir/$plugin_name/$plugin_name.zsh"
-		[ -f "$plugin" ] \
-			&& source "$plugin" \
-			&& plugin_installed=true
-	done
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-	[ $plugin_installed = false ] \
-		&& echo -e "\033[33m[ ! ]\033[0m ZSH ${plugin_name#zsh-} not installed"
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+DEFAULT_USER="mumtoza"
+POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="zsh_wifi_signal"
+POWERLEVEL9K_CUSTOM_WIFI_SIGNAL_BACKGROUND="white"
+POWERLEVEL9K_CUSTOM_WIFI_SIGNAL_FOREGROUND="black"
+
+zsh_wifi_signal(){
+        local output=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I)
+        local airport=$(echo $output | grep 'AirPort' | awk -F': ' '{print $2}')
+
+        if [ "$airport" = "Off" ]; then
+                local color='%F{black}'
+                echo -n "%{$color%}Wifi Off"
+        else
+                local ssid=$(echo $output | grep ' SSID' | awk -F': ' '{print $2}')
+                local speed=$(echo $output | grep 'lastTxRate' | awk -F': ' '{print $2}')
+                local color='%F{black}'
+
+                [[ $speed -gt 100 ]] && color='%F{black}'
+                [[ $speed -lt 50 ]] && color='%F{red}'
+
+                echo -n "%{$color%}$ssid %{$color%}\uf1eb%{%f%}" # removed char not in my PowerLine font
+        fi
 }
 
-# ZSH Autosuggestions
-_source_plugin zsh-autosuggestions
-
-# ZSH Syntax Highlighting
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#ccc'
-_source_plugin zsh-syntax-highlighting
-
-# ZSH completion system
-autoload compinit && compinit -d "$HOME/.cache/zcompdump"
-
-
-# -------------------------------- POWERLEVEL ---------------------------------
-
-POWERLEVEL9K_MODE=nerdfont-complete
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_CONTEXT_TEMPLATE='%n'
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='white'
+POWERLEVEL9K_BATTERY_CHARGING='yellow'
+POWERLEVEL9K_BATTERY_CHARGED='green'
+POWERLEVEL9K_BATTERY_DISCONNECTED='$DEFAULT_COLOR'
+POWERLEVEL9K_BATTERY_LOW_THRESHOLD='10'
+POWERLEVEL9K_BATTERY_LOW_COLOR='red'
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
+#POWERLEVEL9K_BATTERY_STAGES=($'\u2581 ' $'\u2582 ' $'\u2583 ' $'\u2584 ' $'\u2585 ' $'\u2586 ' $'\u2587 ' $'\u2588 ')
+POWERLEVEL9K_BATTERY_ICON='\uf1e6 '
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K=truncate_beginning
-POWERLEVEL9K_TIME_BACKGROUND=black
-POWERLEVEL9K_TIME_FOREGROUND=white
-POWERLEVEL9K_TIME_FORMAT=%D{%I:%M}
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND=black
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND=green
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=black
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=yellow
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=white
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=black
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND=black
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=blue
-POWERLEVEL9K_FOLDER_ICON=
-POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE=true
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-POWERLEVEL9K_VCS_UNTRACKED_ICON=●
-POWERLEVEL9K_VCS_UNSTAGED_ICON=±
-POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=↓
-POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON=↑
-POWERLEVEL9K_VCS_COMMIT_ICON=' '
-POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
-POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL=
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{blue}╭─'
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%F{blue}╰%f '
-POWERLEVEL9K_CUSTOM_OS_ICON='echo   $(whoami) '
-POWERLEVEL9K_CUSTOM_OS_ICON_BACKGROUND=red
-POWERLEVEL9K_CUSTOM_OS_ICON_FOREGROUND=white
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_os_icon root_indicator ssh dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status background_jobs time ram)
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="❱ "
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF054%F{073}\uF054%F{109}\uF054%f "
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
+POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
 
-if [[ $(tty) == /dev/pts/* ]]
-then
-	source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2> /dev/null || \
-		echo -e '\033[33m[ ! ]\033[0m ZSH powerlevel10k not installed'
-else
-	clear
-	echo
-	echo
-fi
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context battery dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time dir_writable ip vpn_ip custom_wifi_signal ram load background_jobs)
 
+#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 
-switch_powerlevel_multiline_prompt(){
-	[ $POWERLEVEL9K_PROMPT_ON_NEWLINE = true ] \
-		&& POWERLEVEL9K_PROMPT_ON_NEWLINE=false \
-		|| POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %H:%M \uf073 %d/%m/%y}"
+POWERLEVEL9K_TIME_BACKGROUND='white'
+POWERLEVEL9K_RAM_BACKGROUND='yellow'
+POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND="white"
+POWERLEVEL9K_LOAD_WARNING_BACKGROUND="white"
+POWERLEVEL9K_LOAD_NORMAL_BACKGROUND="white"
+POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND="red"
+POWERLEVEL9K_LOAD_WARNING_FOREGROUND="yellow"
+POWERLEVEL9K_LOAD_NORMAL_FOREGROUND="black"
+POWERLEVEL9K_LOAD_CRITICAL_VISUAL_IDENTIFIER_COLOR="red"
+POWERLEVEL9K_LOAD_WARNING_VISUAL_IDENTIFIER_COLOR="yellow"
+POWERLEVEL9K_LOAD_NORMAL_VISUAL_IDENTIFIER_COLOR="green"
+POWERLEVEL9K_HOME_ICON=''
+POWERLEVEL9K_HOME_SUB_ICON=''
+POWERLEVEL9K_FOLDER_ICON=''
+POWERLEVEL9K_STATUS_VERBOSE=true
+POWERLEVEL9K_STATUS_CROSS=true
+POWERLEVEL9K_TIME_ICON=""
 
-	zle && zle accept-line
-}
-zle -N switch_powerlevel_multiline_prompt
-bindkey ^P switch_powerlevel_multiline_prompt
+# Alias
+alias cls="clear"
+alias down="cd ~/Downloads"
+alias ..="cd .."
+alias ....="cd ../.."
 
+alias look="find . -name"
+alias search="grep --color -rnw ./ -e "
+alias ports="lsof -PiTCP -sTCP:LISTEN"
+alias gc="git -c http.sslVerify=false clone"
+alias git="git -c http.sslVerify=false"
+alias xclip="xclip -selection c"
+alias genemator="ssh genemator@10.10.0.5"
 
-# -------------------------------- FUNCTIONS ---------------------------------
-lazygit() {
-	USAGE="
-lazygit [OPTION]... <msg>
-    GIT but lazy
-    Options:
-        --fixup <commit>        runs 'git commit --fixup <commit> [...]'
-        --amend                 runs 'git commit --amend --no-edit [...]'
-        -f, --force             runs 'git push --force-with-lease [...]'
-        -h, --help              show this help text
-"
-	COMMIT=''
-	MESSAGE=''
-	AMEND=0
-	FORCE=0
-	while [ $# -gt 0 ]
-	do
-		key="$1"
-
-		case $key in
-			--fixup)
-				COMMIT="$2"
-				shift # past argument
-				shift # past value
-				;;
-			--amend)
-				AMEND=1
-				shift # past argument
-				;;
-			-f|--force)
-				FORCE=1
-				shift # past argument
-				;;
-			-h|--help)
-				echo "$USAGE"
-				return 0
-				;;
-			*)
-				MESSAGE="$1"
-				shift # past argument
-				;;
-		esac
-	done
-	git status .
-	git add .
-	if [ $AMEND -eq 1 ]
-	then
-		git commit --amend --no-edit
-	elif [ "$COMMIT" != '' ]
-	then
-		git commit --fixup "$COMMIT"
-		GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash "$COMMIT^"
-	else
-		git commit -m "$MESSAGE"
-	fi
-	git push origin HEAD $([ "$FORCE" -eq 1 ] && echo '--force-with-lease')
-}
-
-
-find() {
-	if [ $# = 1 ];
-	then
-		command find . -iname "*$@*"
-	else
-		command find "$@"
-	fi
-}
+alias speedtest="wget -O /dev/null cachefly.cachefly.net/100mb.test"
+export LSCOLORS=""
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
