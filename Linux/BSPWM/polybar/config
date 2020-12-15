@@ -17,19 +17,19 @@
 
 [color]
 
-bg = #202330
-bgs = #ffc1c6
+bg = #1f1f1f
+bgs = #ffffff
 fg = #FFFFFF
 alpha = #00000000
 
-acolor = #ffc1c6
-acolor1 = #59a2c8
+acolor = #b3b3b3
+acolor1 = #575757
 
-curgent = #EF5350
-coccupied = #42A5F5
+curgent = #adacac
+coccupied = #e0e0e0
 
-shade1 = #c4ac9c
-shade2 = #56778c
+shade1 = #c4c4c4
+shade2 = #8c8c8c
 
 txt = #FFFFFF
 txt1 = #010101
@@ -79,13 +79,13 @@ pading = 0
 ;; ;-       fonts        -; ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-font-0 = "Terminus(TTF):pixelsize=9;3"
-font-1 = "Iosevka Nerd Font:pixelsize=10;3"
-font-2 = "FontAwesome5:pixelsize=10;3"
+font-0 = "JetBrains Mono Nerd Font Mono:pixelsize=12;3"
+font-1 = "JetBrains Mono Nerd Font Mono:pixelsize=12;3"
+font-2 = "JetBrains Mono Nerd Font Mono:pixelsize=12;3"
 
-font-3 = "Terminus(TTF):pixelsize=23;5"
-font-4 = "Iosevka Nerd Font:pixelsize=23;5"
-font-5 = "FontAwesome5:pixelsize=23;5"
+font-3 = "JetBrains Mono Nerd Font:pixelsize=23;5"
+font-4 = "JetBrains Mono Nerd Font:pixelsize=23;5"
+font-5 = "JetBrains Mono Nerd Font:pixelsize=23;5"
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;-      fonts end     -; ;;
@@ -114,7 +114,7 @@ wm-restack = bspwm
 
 modules-left = rounded-left workspaces rounded-right sep rounded-left spotify rounded-right
 modules-center = rounded-left time septime date rounded-right
-modules-right = rounded-left-colored wlan bluetooth volume battery xkeyboard timer rounded-right-colored
+modules-right = rounded-left-colored wlan bluetooth volume xkeyboard update txt rounded-right-colored
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;- module position end-; ;;
@@ -136,14 +136,14 @@ enable-click = true
 enable-scroll = true
 format-padding = 1
 
-icon-default = 
+icon-default = 喝
 
 format = <label-state>
 format-background = ${color.bg}
-label-active = 
-label-occupied = 
-label-urgent = 
-label-empty = 
+label-active = 謁
+label-occupied = 卑
+label-urgent = 
+label-empty = 喝
 
 label-empty-padding = 1
 label-active-padding = 1
@@ -219,7 +219,7 @@ time =  %k:%M
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlo1
 interval = 3.0
 format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
@@ -514,7 +514,7 @@ tail = true
 
 [module/txt]
 type = custom/text
-content =  70%
+content = Genemator
 content-background = ${color.bgs}
 content-foreground = ${color.txt1}
 content-padding = 1
